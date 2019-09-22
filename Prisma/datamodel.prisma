@@ -2,7 +2,7 @@ type SlackMessage {
   id: ID! @id
   createdAt: DateTime! @createdAt
   text: String!
-  owner: User! @relation(link: INLINE)
+  owner: People! @relation(link: INLINE)
   location: Location!
 }
 
@@ -11,7 +11,7 @@ type People {
   createdAt: DateTime! @createdAt
   updatedAt: DateTime! @updatedAt
   handle: String! @unique
-  github: String
+  github: String! @unique
   first_name: String
   last_name: String
   timezone: String
@@ -22,4 +22,22 @@ type Role {
   id: ID! @id
   name: String
   type: String
+}
+
+type Group {
+    id: ID! @id
+    name: String
+}
+
+type Products {
+    id: ID! @id
+    name: String
+}
+
+type Projects {
+    id: ID! @id
+    productid: String
+    name: String
+    start: DateTime! @start
+    end: DateTime! @end
 }
