@@ -1,0 +1,25 @@
+type SlackMessage {
+  id: ID! @id
+  createdAt: DateTime! @createdAt
+  text: String!
+  owner: User! @relation(link: INLINE)
+  location: Location!
+}
+
+type People {
+  id: ID! @id
+  createdAt: DateTime! @createdAt
+  updatedAt: DateTime! @updatedAt
+  handle: String! @unique
+  github: String
+  first_name: String
+  last_name: String
+  timezone: String
+  program: String
+}
+
+type Role {
+  id: ID! @id
+  name: String
+  type: String
+}
