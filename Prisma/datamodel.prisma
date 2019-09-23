@@ -41,3 +41,13 @@ type Projects {
     start: DateTime! @start
     end: DateTime! @end
 }
+
+type Query {
+  peoples: [People]
+}
+
+type Mutation {
+  createSerial(serial: SerialInput!): People
+  addSerial(serial: KnownSerialInput): People
+  updateId(FromSerialPeople: Serial!, ToIdPeople: ID!): People
+}
