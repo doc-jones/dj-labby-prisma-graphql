@@ -43,11 +43,13 @@ type Projects {
 }
 
 type Query {
-  peoples: [People]
+  peoples: People[]!
+  people(id:ID!): People
 }
 
 type Mutation {
   createSerial(serial: SerialInput!): People
-  addSerial(serial: KnownSerialInput): People
-  updateId(FromSerialPeople: Serial!, ToIdPeople: ID!): People
+  updateSerial(serial: KnownSerialInput): People
+  addSerial(FromSerialPeople: serial, ToIdPeople: ID!): People
+
 }
